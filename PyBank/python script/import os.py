@@ -18,13 +18,20 @@ with open(budget_data, 'r') as csvfile:
     column2=[]
     date=[]
     total=[]
+    change=[]
 
     for row in csv_reader:
         #print (row)
+        profit=(row[1])
 
-        column2.append(float(row[1]))
+        column2.append(float(profit))
         date.append((row[0]))
+    
+    for profit in column2:
 
+        
+
+    
 
     #total=
     #average_change=

@@ -2,7 +2,7 @@ import os
 import csv
 
 
-election_data = os.path.join("..",'resources','election_data.csv')
+election_data = os.path.join('..','Resources','election_data.csv')
 
 
 # Read in the CSV file
@@ -29,13 +29,26 @@ with open(election_data, 'r') as csvfile:
         Candidate.append((row[2]))
         
 
-
-
-
     Khan = Candidate.count("Khan")
     Correy = Candidate.count("Correy")
     Li = Candidate.count("Li")
     Otooley = Candidate.count("O'Tooley")
+
+    total_max= max(Khan,Correy, Li, Otooley)
+
+    if total_max == Khan:  
+        winner= "Kahn"
+
+    elif total_max == Correy:
+        winner= "Correy"
+    
+    elif total_max == Li:  
+        winner= "Li"
+
+    elif total_max == Otooley:  
+        winner= "Otooley"
+
+    
 
     print("Election Results")
     print("------------------")
@@ -46,7 +59,7 @@ with open(election_data, 'r') as csvfile:
     print(f'Li %',((Li/len(VoterID))*100))
     print(f'OTooley %',((Otooley/len(VoterID))*100))
     print("------------------")
-    print(f'winner is ')
+    print(f'winner is ', winner)
    
     
     #print(count)  
@@ -58,22 +71,17 @@ with open(election_data, 'r') as csvfile:
 
 
 
-# f =  open("output.txt", "w")
-# print(f'Total Months: {len(date)}', file= f)  
-# print(f'Total:', sum(column2), file= f)
-# print(f'Average Change:', sum(column2)/len(column2), file= f)
-# print(f"Greatest Increase in Profits:", max(column2), file= f)
-# print(f'Greatest Decrease In Profits:', min(column2), file= f)
+f =  open("output.txt", "w")
 
-    print("Election Results", file=f)
-    print("------------------", file=f)
-    print(f'Total Voters: {len(VoterID)}', file=f)
-    print("------------------", file=f)
-    print(f'Kahn %',((Khan/len(VoterID))*100), file=f)
-    print(f'Corry %',((Correy/len(VoterID))*100),file=f )
-    print(f'Li %',((Li/len(VoterID))*100), file=f)
-    print(f'OTooley %',((Otooley/len(VoterID))*100), file=f)
-    print("------------------", file=f)
-    print(f'winner is ', file=f)
+print("Election Results", file=f)
+print("------------------", file=f)
+print(f'Total Voters: {len(VoterID)}', file=f)
+print("------------------", file=f)
+print(f'Kahn %',((Khan/len(VoterID))*100), file=f)
+print(f'Corry %',((Correy/len(VoterID))*100),file=f )
+print(f'Li %',((Li/len(VoterID))*100), file=f)
+print(f'OTooley %',((Otooley/len(VoterID))*100), file=f)
+print("------------------", file=f)
+print(f'winner is ', file=f)
 
 # f.close()
